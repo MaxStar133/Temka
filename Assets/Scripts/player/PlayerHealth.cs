@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private float timeToDamage;
     [SerializeField] private GameObject lozeMenu;
+    [SerializeField] private AudioSource audio;
 
 
     [SerializeField] private TextMeshProUGUI textHealth;
@@ -29,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
             if (time >= timeToDamage)
             {
                 TakeDamage();
+                audio.Play();
                 time = 0;
             }
         }
@@ -44,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health--;
         textHealth.text = health.ToString();
+
 
 
         if (health <= 0)
