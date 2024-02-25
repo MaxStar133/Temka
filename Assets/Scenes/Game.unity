@@ -1838,6 +1838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 5934329024438477336, guid: e68f04cfe68b62e49975332fe2761d4c, type: 3}
   spawnPoint: {fileID: 1821147969}
+  fireRate: 0.5
 --- !u!212 &1866529515
 SpriteRenderer:
   m_ObjectHideFlags: 0

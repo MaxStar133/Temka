@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8627a800508b85f4cad92b63815c0633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textRecord: {fileID: 0}
+  textRecord: {fileID: 1513315105}
 --- !u!114 &260555235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,6 +821,6 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1222202511}
   - {fileID: 396645592}
   - {fileID: 260555238}
-  - {fileID: 1222202511}

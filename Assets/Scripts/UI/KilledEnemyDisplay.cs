@@ -6,7 +6,7 @@ using UnityEngine;
 public class KilledEnemyDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    private int count;
+    private int count=0;
 
     public void KilledEnemy()
     {
@@ -15,7 +15,7 @@ public class KilledEnemyDisplay : MonoBehaviour
     }
     public void SetRecord()
     {
-        if(PlayerPrefs.GetInt("Record")< count)
+        if(PlayerPrefs.GetInt("Record") < count)
         {
             PlayerPrefs.SetInt("Record", count);
         }

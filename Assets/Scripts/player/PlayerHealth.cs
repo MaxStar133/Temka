@@ -15,6 +15,12 @@ public class PlayerHealth : MonoBehaviour
     private KilledEnemyDisplay enemyDisplay;
     private float time = 1;
 
+
+    private void Start()
+    {
+        enemyDisplay = FindObjectOfType<KilledEnemyDisplay>();
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out EnemyHealth enemy))

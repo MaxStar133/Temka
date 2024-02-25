@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI textRecord;
-    private int record;
+    private int record=0;
     private void Start()
     {
         record = PlayerPrefs.GetInt("Record", record);

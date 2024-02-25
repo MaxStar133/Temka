@@ -6,12 +6,12 @@ public class PlayerMove : MonoBehaviour
 {
    [SerializeField] private float speed;
 
-   private Rigidbody2D rigidbody;
+   private Rigidbody2D rg;
    private Vector2 moveInput;
 
    private void Start()
    {
-     rigidbody = GetComponent<Rigidbody2D>();
+     rg = GetComponent<Rigidbody2D>();
    }
 
    private void Update()
@@ -22,6 +22,6 @@ public class PlayerMove : MonoBehaviour
    }
     private void FixedUpdate()
     {
-        rigidbody.MovePosition(rigidbody.position + moveInput * speed * Time.fixedDeltaTime);
+        rg.MovePosition(rg.position + moveInput * speed * Time.fixedDeltaTime);
     }
 }
