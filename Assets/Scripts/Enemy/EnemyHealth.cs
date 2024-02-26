@@ -20,10 +20,12 @@ public class EnemyHealth : MonoBehaviour
 			Destroy(bullet.gameObject);
 		  }
    }
-
-   private void TakeDamage()
+	
+	private void TakeDamage()
    {
-    health-Gun.damage;
+		//int damage = ;
+		// health = health - damage;
+		health--;
 
 	if (health<=0)
 	{
