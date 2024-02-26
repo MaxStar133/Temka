@@ -8,12 +8,19 @@ public class EnemyMove : MonoBehaviour
 
 	private Transform playerPosition;
 
-	private void Start()
-	{
-	 playerPosition = FindObjectOfType<PlayerMove>().GetComponent<Transform>();
-	}
-
-	private void Update()
+    private void Start()
+    {
+        PlayerMove playerMove = FindObjectOfType<PlayerMove>();
+        if (playerMove != null)
+        {
+            playerPosition = playerMove.transform;
+        }
+        else
+        {
+            Debug.Log ("PlayerMove не найден в сцене!");
+        }
+    }
+        private void Update()
 	{
 		if (playerPosition != null)
 		{

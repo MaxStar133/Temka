@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 795742499385395623}
   - component: {fileID: 5953912220324780046}
   - component: {fileID: 4105383540978958062}
+  - component: {fileID: -5075720641567969198}
   - component: {fileID: -5347319356779147455}
   - component: {fileID: 8470197336151195983}
   - component: {fileID: 5663407742252635045}
-  - component: {fileID: -5075720641567969198}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -183,6 +183,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &-5075720641567969198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860222804705963969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456b4cdef56c66a4985faf7c2474ba6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageEnemy: 2
 --- !u!82 &-5347319356779147455
 AudioSource:
   m_ObjectHideFlags: 0
@@ -396,19 +409,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-5075720641567969198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860222804705963969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 456b4cdef56c66a4985faf7c2474ba6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageEnemy: 5
 --- !u!1 &6292694891464461973
 GameObject:
   m_ObjectHideFlags: 0
