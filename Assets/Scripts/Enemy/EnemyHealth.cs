@@ -38,9 +38,13 @@ public class EnemyHealth : MonoBehaviour
     }
 	private void TakeDamage()
    {
-		damage = FindObjectOfType<Gun>().GetComponent<Gun>();
-		health = health - damage.damage;
-		//health--;
+		if (FindObjectOfType<Gun>())
+		{
+			damage = FindObjectOfType<Gun>().GetComponent<Gun>();
+			health = health - damage.damage;
+			//health--;
+		}
+		else Debug.Log ("Dont FindObjectOfType<Gun>");
 
 	if (health<=0)
 	{
