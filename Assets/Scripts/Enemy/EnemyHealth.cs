@@ -8,11 +8,11 @@ public class EnemyHealth : MonoBehaviour
 	[SerializeField]  public int health;
     [SerializeField] private AudioSource audioEnemy;
     [SerializeField] private float timeDie = 1.5f;
-
     private KilledEnemyDisplay enemyDisplay;
 	private EnemyMove move;
 	private CircleCollider2D circleCollider;
-	
+	private Gun damage;
+
 	private void Start()
     {
 		move = GetComponent<EnemyMove>();
@@ -38,9 +38,9 @@ public class EnemyHealth : MonoBehaviour
     }
 	private void TakeDamage()
    {
-		//int damage = ;
-		// health = health - damage;
-		health--;
+		damage = FindObjectOfType<Gun>().GetComponent<Gun>();
+		health = health - damage.damage;
+		//health--;
 
 	if (health<=0)
 	{
