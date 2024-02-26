@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
 	[SerializeField]  public int health;
 	private KilledEnemyDisplay enemyDisplay;
 	[SerializeField] private AudioSource audioEnemy;
+	private Gun damage;
 	private void Start()
     {
 		enemyDisplay = FindObjectOfType<KilledEnemyDisplay>().GetComponent<KilledEnemyDisplay>();
@@ -23,9 +24,8 @@ public class EnemyHealth : MonoBehaviour
 	
 	private void TakeDamage()
    {
-		//int damage = ;
-		// health = health - damage;
-		health--;
+		damage = FindObjectOfType<Gun>().GetComponent<Gun>();
+		health = health - damage.damage;
 
 	if (health<=0)
 	{

@@ -7,8 +7,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float fireRate = 0.1f;
-    [SerializeField] private AudioSource audio;
-   // [SerializeField] public int damage;
+    [SerializeField] private AudioSource audioGun;
+    [SerializeField] public int damage;
 
     private bool canShoot = true;
 
@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButton(0) && canShoot) 
         {
             StartCoroutine(Shoot());
-            audio.Play();
+            audioGun.Play();
         }
     }
 
