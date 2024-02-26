@@ -1131,7 +1131,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5.81
   m_LinearDrag: 12
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -1955,6 +1955,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1821147969}
   fireRate: 0.5
   audio: {fileID: 1866529516}
+  damage: 1
 --- !u!212 &1866529515
 SpriteRenderer:
   m_ObjectHideFlags: 0

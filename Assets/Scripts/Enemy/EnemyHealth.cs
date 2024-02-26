@@ -16,14 +16,14 @@ public class EnemyHealth : MonoBehaviour
 		  if(collision.gameObject.TryGetComponent(out Bullet bullet))
 		  {
 			TakeDamage();
-			audioEnemy.Play();
+			audioEnemy.Play();	
 			Destroy(bullet.gameObject);
 		  }
    }
 
    private void TakeDamage()
    {
-    health--;
+    health-Gun.damage;
 
 	if (health<=0)
 	{
