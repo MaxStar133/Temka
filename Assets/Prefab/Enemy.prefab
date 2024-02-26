@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 4
-  audio: {fileID: -5347319356779147455}
+  audioEnemy: {fileID: -5347319356779147455}
 --- !u!114 &4105383540978958062
 MonoBehaviour:
   m_ObjectHideFlags: 0
