@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,18 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
 	[SerializeField]  public int health;
-	private KilledEnemyDisplay enemyDisplay;
-	[SerializeField] private AudioSource audioEnemy;
-	private Gun damage;
+    [SerializeField] private AudioSource audioEnemy;
+    [SerializeField] private float timeDie = 1.5f;
+
+    private KilledEnemyDisplay enemyDisplay;
+	private EnemyMove move;
+	private CircleCollider2D circleCollider;
+	
 	private void Start()
     {
+		move = GetComponent<EnemyMove>();
 		enemyDisplay = FindObjectOfType<KilledEnemyDisplay>().GetComponent<KilledEnemyDisplay>();
+		circleCollider = GetComponent<CircleCollider2D>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
    {
@@ -21,18 +28,28 @@ public class EnemyHealth : MonoBehaviour
 			Destroy(bullet.gameObject);
 		  }
    }
-	
+	public void EnemyDisable()
+	{
+        gameObject.SetActive(false);
+        enemyDisplay.KilledEnemy();
+        move.enabled = true;
+        circleCollider.enabled = true;
+        health = 4;
+    }
 	private void TakeDamage()
    {
-		damage = FindObjectOfType<Gun>().GetComponent<Gun>();
-		health = health - damage.damage;
+		//int damage = ;
+		// health = health - damage;
+		health--;
 
 	if (health<=0)
 	{
-			gameObject.SetActive(false);
-			enemyDisplay.KilledEnemy();
-			health = 4;
+            audioEnemy.Play();
+            move.enabled = false;
+			circleCollider.enabled = false;
+            Invoke("EnemyDisable", timeDie);
 	}
+
    }
 
 
