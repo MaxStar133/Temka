@@ -20,8 +20,9 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         rb=GetComponent<Rigidbody2D>();
-        enemyDisplay = FindObjectOfType<KilledEnemyDisplay>();
     }
+
+   
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -49,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
     private void TakeDamage()
     {
         damage = FindObjectOfType<Zombie>().GetComponent<Zombie>();
-        health= health- damage.damageEnemy;
+        health= health - damage.damageEnemy;
         textHealth.text = health.ToString();
 
 
@@ -57,9 +58,9 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             lozeMenu.SetActive(true);
-            enemyDisplay.SetRecord();
             rb.bodyType = RigidbodyType2D.Static;
             playerDie = true;
+            Destroy(gameObject);
         }
     }
 }

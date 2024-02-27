@@ -16,17 +16,15 @@ public class Zombie : MonoBehaviour
 	private CircleCollider2D circleCollider;
 	private Pistolet gun;
 	private Animator anim;
-
 	private float stunSpeed;
 	private float speed;
 		[SerializeField] public GameObject ammoPrefab;
-	[SerializeField] public int damageEnemy;
 	private void Start()
     {
 		move = GetComponent<ZombieMove>();
 		circleCollider = GetComponent<CircleCollider2D>();
 		anim = GetComponent<Animator>();
-        gun = FindObjectOfType<Gun>().GetComponent<Gun>();
+        gun = FindObjectOfType<Pistolet>().GetComponent<Pistolet>();
 
         stunSpeed = move.speed / 2;
 		speed = move.speed;
