@@ -14,12 +14,11 @@ GameObject:
   - component: {fileID: 795742499385395623}
   - component: {fileID: 5953912220324780046}
   - component: {fileID: 4105383540978958062}
-  - component: {fileID: -5075720641567969198}
   - component: {fileID: -5347319356779147455}
   - component: {fileID: 8470197336151195983}
   - component: {fileID: 5663407742252635045}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,9 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56db1bdf2cf2be45b7a5f6961e93059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  health: 2
   audioEnemy: {fileID: -5347319356779147455}
   timeDie: 1.5
+  damageEnemy: 1
 --- !u!114 &4105383540978958062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,20 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117391fce1d90a9419798b42db4557b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &-5075720641567969198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860222804705963969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 456b4cdef56c66a4985faf7c2474ba6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageEnemy: 2
+  speed: 3
 --- !u!82 &-5347319356779147455
 AudioSource:
   m_ObjectHideFlags: 0

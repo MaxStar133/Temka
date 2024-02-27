@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
 	private EnemyMove move;
 	private CircleCollider2D circleCollider;
 	private Gun damage;
-
+	[SerializeField] public int damageEnemy;
 	private void Start()
     {
 		move = GetComponent<EnemyMove>();

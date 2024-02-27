@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float timeToDamage;
     [SerializeField] private GameObject lozeMenu;
     [SerializeField] private AudioSource audioHit;
-    private EnemyDamage damage;
+    private EnemyHealth damage;
     [SerializeField] private TextMeshProUGUI textHealth;
 
     private KilledEnemyDisplay enemyDisplay;
@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
     }
     private void TakeDamage()
     {
-        damage = FindObjectOfType<EnemyDamage>().GetComponent<EnemyDamage>();
+        damage = FindObjectOfType<EnemyHealth>().GetComponent<EnemyHealth>();
         health= health- damage.damageEnemy;
         textHealth.text = health.ToString();
 
