@@ -9,9 +9,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private float timeToDamage;
     [SerializeField] private GameObject loseMenu;
-    [SerializeField] private AudioSource audioHit;
     [SerializeField] private TextMeshProUGUI textHealth;
-
+    [SerializeField] private AudioSource audioDie;
     private Pistolet loseGun;
     private Rigidbody2D rb;
     private Zombie damage;
@@ -52,13 +51,18 @@ public class PlayerHealth : MonoBehaviour
     private void TakeDamage()
     {
         damage = FindObjectOfType<Zombie>().GetComponent<Zombie>();
-        health= health - damage.damageEnemy;
+        health = health - damage.damageEnemy;
+        if (health < 0)
+        {
+            health = 0;
+        }
         textHealth.text = health.ToString();
-
+            
 
 
         if (health <= 0)
         {
+            audioDie.Play();
             health = 0; 
             loseMenu.SetActive(true);
             rb.bodyType = RigidbodyType2D.Static;

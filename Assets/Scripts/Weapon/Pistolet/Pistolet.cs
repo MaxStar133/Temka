@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Pistolet : MonoBehaviour
 {
@@ -8,12 +9,12 @@ public class Pistolet : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float fireRate = 0.1f;
     [SerializeField] private AudioSource audioGun;
+    [SerializeField] private TextMeshProUGUI Ammoes;
     public int damage;
     private bool canShoot = true;
     public float stun = 0.2f;
     public int maxAmmo = 7; // ћаксимальное количество патронов
-    private int currentAmmo; // “екущее количество патронов
-
+   public int currentAmmo; // “екущее количество патронов
     private void Start()
     {
         currentAmmo = maxAmmo; // »нициализируем количество патронов при старте
@@ -29,37 +30,35 @@ public class Pistolet : MonoBehaviour
             currentAmmo--;
             StartCoroutine(Shoot());
             audioGun.Play();
-            if (currentAmmo <= 0)
-            {
-                canShoot = false;
-            }
+            AmmoUI();
         }
         if (currentAmmo <= 0)
         {
             canShoot = false;
         }
-
     }
     public void AddAmmo(int amount)
     {
         Debug.Log(3);
         currentAmmo += amount; // ”величиваем текущее количество патронов
         currentAmmo = Mathf.Clamp(currentAmmo, 0, maxAmmo); // ќграничиваем количество патронов максимальным значением
+        AmmoUI();
         if (currentAmmo > 0)
         {
             canShoot = true;
         }
-       
+    }
+    private void AmmoUI()
+    {
+        Ammoes.text = currentAmmo.ToString() + "/" + maxAmmo.ToString();
     }
 
     private IEnumerator Shoot()
     {
         canShoot = false; 
-
         Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
-
         yield return new WaitForSeconds(fireRate); 
-
-        canShoot = true; 
+        canShoot = true;
     }
+
 }
