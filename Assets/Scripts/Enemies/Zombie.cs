@@ -1,28 +1,40 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-	[SerializeField]  public int health;
+	public float health = 5f;
     [SerializeField] private AudioSource audioEnemy;
     [SerializeField] private float timeDie = 1.5f;
-    [SerializeField] public int damageEnemy;
+    public float damageEnemy = 1f;
 
 
     private KilledEnemyDisplay enemyDisplay;
 	private EnemyMove move;
 	private CircleCollider2D circleCollider;
-	private Gun damage;
+	private Gun gun;
 	private Animator anim;
-	
+
+	private float stunSpeed;
+	private float speed;
+
 	private void Start()
     {
 		move = GetComponent<EnemyMove>();
 		enemyDisplay = FindObjectOfType<KilledEnemyDisplay>().GetComponent<KilledEnemyDisplay>();
 		circleCollider = GetComponent<CircleCollider2D>();
 		anim = GetComponent<Animator>();
+        gun = FindObjectOfType<Gun>().GetComponent<Gun>();
+
+        stunSpeed = move.speed / 2;
+		speed = move.speed;
+    }
+    private void ResetSpeed()
+    {
+        move.speed = speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
    {
@@ -31,7 +43,8 @@ public class EnemyHealth : MonoBehaviour
 			TakeDamage();
 			audioEnemy.Play();	
 			Destroy(bullet.gameObject);
-		  }
+			Invoke ("ResetSpeed", gun.stun);
+          }
    }
 	public void EnemyDisable()
 	{
@@ -45,8 +58,8 @@ public class EnemyHealth : MonoBehaviour
    {
 		if (FindObjectOfType<Gun>())
 		{
-			damage = FindObjectOfType<Gun>().GetComponent<Gun>();
-			health = health - damage.damage;
+			move.speed = stunSpeed;
+			health = health - gun.damage;
 			//health--;
 		}
 		else Debug.Log ("Dont FindObjectOfType<Gun>");

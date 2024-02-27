@@ -2589,7 +2589,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1821147969}
   fireRate: 0.5
   audioGun: {fileID: 1866529516}
-  damage: 5
+  damage: 1
+  stun: 0.2
 --- !u!212 &1866529515
 SpriteRenderer:
   m_ObjectHideFlags: 0

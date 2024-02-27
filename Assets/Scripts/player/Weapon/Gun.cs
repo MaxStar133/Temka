@@ -8,7 +8,9 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float fireRate = 0.1f;
     [SerializeField] private AudioSource audioGun;
-    [SerializeField] public int damage;
+    public float damage=1f;
+    public float stun = 0.2f;
+
 
     private bool canShoot = true;
 

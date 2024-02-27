@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int health;
+    [SerializeField] private float health;
     [SerializeField] private float timeToDamage;
     [SerializeField] private GameObject lozeMenu;
     [SerializeField] private AudioSource audioHit;
