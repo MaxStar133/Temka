@@ -8,16 +8,21 @@ public class EnemyHealth : MonoBehaviour
 	[SerializeField]  public int health;
     [SerializeField] private AudioSource audioEnemy;
     [SerializeField] private float timeDie = 1.5f;
+    [SerializeField] public int damageEnemy;
+
+
     private KilledEnemyDisplay enemyDisplay;
 	private EnemyMove move;
 	private CircleCollider2D circleCollider;
 	private Gun damage;
-	[SerializeField] public int damageEnemy;
+	private Animator anim;
+	
 	private void Start()
     {
 		move = GetComponent<EnemyMove>();
 		enemyDisplay = FindObjectOfType<KilledEnemyDisplay>().GetComponent<KilledEnemyDisplay>();
 		circleCollider = GetComponent<CircleCollider2D>();
+		anim = GetComponent<Animator>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
    {
@@ -48,10 +53,12 @@ public class EnemyHealth : MonoBehaviour
 
 	if (health<=0)
 	{
+            anim.SetTrigger("zombieDie");
             audioEnemy.Play();
             move.enabled = false;
 			circleCollider.enabled = false;
             Invoke("EnemyDisable", timeDie);
+			
 	}
 
    }

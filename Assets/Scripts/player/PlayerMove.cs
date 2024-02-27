@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
    }
     private void FixedUpdate()
     {
+        if (rg.bodyType != RigidbodyType2D.Static)
         rg.MovePosition(rg.position + moveInput * speed * Time.fixedDeltaTime);
     }
 }
