@@ -169,7 +169,8 @@ MonoBehaviour:
   health: 2
   audioEnemy: {fileID: -5347319356779147455}
   timeDie: 1.5
-  damageEnemy: 1
+  damageEnemy: 3
+  ammoPrefab: {fileID: 9132694336966834371, guid: 744f9eb89fed03c4f821474f204f2a76, type: 3}
 --- !u!114 &4105383540978958062
 MonoBehaviour:
   m_ObjectHideFlags: 0

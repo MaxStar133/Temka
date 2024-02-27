@@ -7,12 +7,12 @@ public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField] GameObject pause;
 
-    private Gun pauseGun;
+    private Pistolet pauseGun;
 
     void Start()
     {
         pause.SetActive(false);
-        pauseGun = FindObjectOfType<Gun>().GetComponent<Gun>();
+        pauseGun = FindObjectOfType<Pistolet>().GetComponent<Pistolet>();
     }
 
     // Update is called once per frame
