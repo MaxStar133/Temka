@@ -1174,7 +1174,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1224,7 +1224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   timeToDamage: 1
-  lozeMenu: {fileID: 216320410}
+  loseMenu: {fileID: 216320410}
   audioHit: {fileID: 996954058}
   textHealth: {fileID: 1850304435}
 --- !u!82 &996954058
@@ -2441,8 +2441,8 @@ MonoBehaviour:
   fireRate: 0.5
   audioGun: {fileID: 1866529516}
   damage: 5
+  stun: 0.2
   maxAmmo: 7
-  currentAmmo: 0
 --- !u!212 &1866529515
 SpriteRenderer:
   m_ObjectHideFlags: 0

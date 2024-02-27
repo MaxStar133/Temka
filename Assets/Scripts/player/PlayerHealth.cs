@@ -8,10 +8,11 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float health;
     [SerializeField] private float timeToDamage;
-    [SerializeField] private GameObject lozeMenu;
+    [SerializeField] private GameObject loseMenu;
     [SerializeField] private AudioSource audioHit;
     [SerializeField] private TextMeshProUGUI textHealth;
 
+    private Pistolet loseGun;
     private Rigidbody2D rb;
     private Zombie damage;
     private float time = 1;
@@ -20,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         rb=GetComponent<Rigidbody2D>();
+        loseGun = FindObjectOfType<Pistolet>().GetComponent<Pistolet>();
     }
 
    
@@ -57,10 +59,11 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            lozeMenu.SetActive(true);
+            health = 0; 
+            loseMenu.SetActive(true);
             rb.bodyType = RigidbodyType2D.Static;
             playerDie = true;
-            Destroy(gameObject);
+            loseGun.enabled = false;
         }
     }
 }
