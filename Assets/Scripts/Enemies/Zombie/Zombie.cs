@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
 	public float health = 5f;
     [SerializeField] private AudioSource audioEnemy;
@@ -12,19 +12,18 @@ public class EnemyHealth : MonoBehaviour
     public float damageEnemy = 1f;
 
 
-    private KilledEnemyDisplay enemyDisplay;
-	private EnemyMove move;
+	private ZombieMove move;
 	private CircleCollider2D circleCollider;
-	private Gun gun;
+	private Pistolet gun;
 	private Animator anim;
 
 	private float stunSpeed;
 	private float speed;
-
+		[SerializeField] public GameObject ammoPrefab;
+	[SerializeField] public int damageEnemy;
 	private void Start()
     {
-		move = GetComponent<EnemyMove>();
-		enemyDisplay = FindObjectOfType<KilledEnemyDisplay>().GetComponent<KilledEnemyDisplay>();
+		move = GetComponent<ZombieMove>();
 		circleCollider = GetComponent<CircleCollider2D>();
 		anim = GetComponent<Animator>();
         gun = FindObjectOfType<Gun>().GetComponent<Gun>();
@@ -49,14 +48,13 @@ public class EnemyHealth : MonoBehaviour
 	public void EnemyDisable()
 	{
         gameObject.SetActive(false);
-        enemyDisplay.KilledEnemy();
         move.enabled = true;
         circleCollider.enabled = true;
         health = 4;
     }
 	private void TakeDamage()
    {
-		if (FindObjectOfType<Gun>())
+		if (FindObjectOfType<Pistolet>())
 		{
 			move.speed = stunSpeed;
 			health = health - gun.damage;
@@ -71,10 +69,14 @@ public class EnemyHealth : MonoBehaviour
             move.enabled = false;
 			circleCollider.enabled = false;
             Invoke("EnemyDisable", timeDie);
-			
+			DropAmmo();
+		}
+		
 	}
-
-   }
+	private void DropAmmo()
+	{
+		Instantiate(ammoPrefab, transform.position, Quaternion.identity); 
+	}
 
 
 

@@ -13,8 +13,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textHealth;
 
     private Rigidbody2D rb;
-    private EnemyHealth damage;
-    private KilledEnemyDisplay enemyDisplay;
+    private Zombie damage;
     private float time = 1;
     private bool playerDie = false;
 
@@ -28,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!playerDie)
         {
-            if (collision.gameObject.TryGetComponent(out EnemyHealth enemy))
+            if (collision.gameObject.TryGetComponent(out Zombie enemy))
             {
                 time += Time.deltaTime;
                 if (time >= timeToDamage)
@@ -42,14 +41,14 @@ public class PlayerHealth : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out EnemyHealth enemy))
+        if (collision.gameObject.TryGetComponent(out Zombie enemy))
         {
             time = 1;
         }
     }
     private void TakeDamage()
     {
-        damage = FindObjectOfType<EnemyHealth>().GetComponent<EnemyHealth>();
+        damage = FindObjectOfType<Zombie>().GetComponent<Zombie>();
         health= health- damage.damageEnemy;
         textHealth.text = health.ToString();
 
@@ -61,7 +60,6 @@ public class PlayerHealth : MonoBehaviour
             enemyDisplay.SetRecord();
             rb.bodyType = RigidbodyType2D.Static;
             playerDie = true;
-            
         }
     }
 }
