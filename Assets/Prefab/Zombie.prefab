@@ -168,7 +168,8 @@ MonoBehaviour:
   audioEnemy: {fileID: 8470197336151195983}
   timeDie: 1.5
   ammoPrefab: {fileID: 9132694336966834371, guid: 744f9eb89fed03c4f821474f204f2a76, type: 3}
-  randSpawnAmmo: 50
+  randSpawnAmmo: 100
+  incRandSpawnAmmo: 0
   minDamageEnemy: 1
   maxDamageEnemy: 2
 --- !u!114 &4105383540978958062

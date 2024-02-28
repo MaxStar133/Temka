@@ -18,8 +18,8 @@ public class Pistolet : MonoBehaviour
     public float stun = 0.2f;
     public int maxAmmo = 7; // ћаксимальное количество патронов
    public int currentAmmo; // “екущее количество патронов
-   
-    
+
+
     private void Start()
     {
         Ammoes.text = currentAmmo + "/" + maxAmmo;
@@ -30,8 +30,9 @@ public class Pistolet : MonoBehaviour
         float rotateZ = Mathf.Atan2(diference.y, diference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
 
-        if (Input.GetMouseButton(0) && canShoot) 
+        if (Input.GetMouseButton(0) && canShoot &&  currentAmmo > 0) 
         {
+
             currentAmmo--;
             StartCoroutine(Shoot());
             audioGun.Play();
@@ -39,20 +40,29 @@ public class Pistolet : MonoBehaviour
         }
         if (currentAmmo <= 0)
         {
+        
             canShoot = false;
         }
+      
     }
     public void AddAmmo(int amount)
     {
-        Debug.Log(3);
-        currentAmmo += amount; // ”величиваем текущее количество патронов
-        currentAmmo = Mathf.Clamp(currentAmmo, 0, maxAmmo); // ќграничиваем количество патронов максимальным значением
-        AmmoUI();
-        if (currentAmmo > 0)
-        {
-            canShoot = true;
-        }
+        
+        
+            Debug.Log(3);
+            currentAmmo += amount; // ”величиваем текущее количество патронов
+            currentAmmo = Mathf.Clamp(currentAmmo, 0, maxAmmo); // ќграничиваем количество патронов максимальным значением
+            AmmoUI();
+            if (currentAmmo > 0)
+            {
+                canShoot = true;
+            }
+          
+        
+        
     }
+
+
     private void AmmoUI()
     {
         Ammoes.text = currentAmmo + "/" + maxAmmo;
@@ -60,6 +70,7 @@ public class Pistolet : MonoBehaviour
 
     private IEnumerator Shoot()
     {
+       
         canShoot = false; 
         Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
         yield return new WaitForSeconds(fireRate); 
