@@ -164,11 +164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56db1bdf2cf2be45b7a5f6961e93059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 5
   audioEnemy: {fileID: 8470197336151195983}
   timeDie: 1.5
-  damageEnemy: 3
   ammoPrefab: {fileID: 9132694336966834371, guid: 744f9eb89fed03c4f821474f204f2a76, type: 3}
+  randSpawnAmmo: 50
+  minDamageEnemy: 1
+  maxDamageEnemy: 2
 --- !u!114 &4105383540978958062
 MonoBehaviour:
   m_ObjectHideFlags: 0

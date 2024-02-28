@@ -10,14 +10,19 @@ public class Pistolet : MonoBehaviour
     [SerializeField] private float fireRate = 0.1f;
     [SerializeField] private AudioSource audioGun;
     [SerializeField] private TextMeshProUGUI Ammoes;
-    public int damage;
+
+
+    public int minDamage;
+    public int maxDamage;
     private bool canShoot = true;
     public float stun = 0.2f;
     public int maxAmmo = 7; // ћаксимальное количество патронов
    public int currentAmmo; // “екущее количество патронов
+   
+    
     private void Start()
     {
-        currentAmmo = maxAmmo; // »нициализируем количество патронов при старте
+        Ammoes.text = currentAmmo + "/" + maxAmmo;
     }
     private void Update()
     {
@@ -50,7 +55,7 @@ public class Pistolet : MonoBehaviour
     }
     private void AmmoUI()
     {
-        Ammoes.text = currentAmmo.ToString() + "/" + maxAmmo.ToString();
+        Ammoes.text = currentAmmo + "/" + maxAmmo;
     }
 
     private IEnumerator Shoot()

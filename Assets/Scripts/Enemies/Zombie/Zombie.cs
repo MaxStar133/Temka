@@ -9,16 +9,22 @@ public class Zombie : MonoBehaviour
 	public float health = 5f;
     [SerializeField] private AudioSource audioEnemy;
     [SerializeField] private float timeDie = 1.5f;
-    public float damageEnemy = 1f;
+    public GameObject ammoPrefab;
+	public int randSpawnAmmo = 50;
+    public int incRandSpawnAmmo = 25;
 
-
-	private ZombieMove move;
+    public int minDamageEnemy = 1;
+    public int maxDamageEnemy = 2;
+    
+    private int currentRandSpawnAmmo;
+	
+    private ZombieMove move;
 	private CircleCollider2D circleCollider;
 	private Pistolet gun;
 	private Animator anim;
 	private float stunSpeed;
 	private float speed;
-		[SerializeField] public GameObject ammoPrefab;
+		
 	private void Start()
     {
 		move = GetComponent<ZombieMove>();
@@ -28,6 +34,7 @@ public class Zombie : MonoBehaviour
 
         stunSpeed = move.speed / 2;
 		speed = move.speed;
+		currentRandSpawnAmmo = randSpawnAmmo;
     }
     private void ResetSpeed()
     {
@@ -55,7 +62,8 @@ public class Zombie : MonoBehaviour
 		if (FindObjectOfType<Pistolet>())
 		{
 			move.speed = stunSpeed;
-			health = health - gun.damage;
+			health = health - Random.Range(gun.minDamage, gun.maxDamage+1);
+			
 			//health--;
 		}
 		else Debug.Log ("Dont FindObjectOfType<Gun>");
@@ -67,7 +75,16 @@ public class Zombie : MonoBehaviour
             move.enabled = false;
 			circleCollider.enabled = false;
             Invoke("EnemyDisable", timeDie);
-			DropAmmo();
+			if (Random.Range(0, 100 / currentRandSpawnAmmo) == 0)
+			{
+				DropAmmo();
+				currentRandSpawnAmmo = randSpawnAmmo;
+			}
+			else
+			{
+				currentRandSpawnAmmo += incRandSpawnAmmo;
+
+            }
 		}
 		
 	}

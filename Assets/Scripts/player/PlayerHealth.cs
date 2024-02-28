@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
     private void TakeDamage()
     {
         damage = FindObjectOfType<Zombie>().GetComponent<Zombie>();
-        health = health - damage.damageEnemy;
+        health = health - Random.Range(damage.minDamageEnemy, damage.maxDamageEnemy+1);
         if (health < 0)
         {
             health = 0;
