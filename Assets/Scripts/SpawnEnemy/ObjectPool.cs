@@ -13,6 +13,7 @@ public class ObjectPool : MonoBehaviour
     {
         for (int i = 0; i < capacity; i++)
         {
+            Debug.Log(capacity);
             GameObject spawned = Instantiate(prefab, container.transform);
 
             spawned.SetActive(false);
@@ -26,6 +27,7 @@ public class ObjectPool : MonoBehaviour
     {
         for (int i = 0; i < capacity; i++)
         {
+            Debug.Log(capacity);
             int randomIndex = Random.Range(0, prefab.Length);
             GameObject spawned = Instantiate(prefab[randomIndex], container.transform);
 
@@ -41,5 +43,8 @@ public class ObjectPool : MonoBehaviour
         result = pool.FirstOrDefault(p => p.activeSelf == false);
         return result != null;
     }
-
+    protected void Zomby()
+    {
+        capacity = 1;
+    }
 }

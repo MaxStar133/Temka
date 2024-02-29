@@ -49,7 +49,6 @@ public class Pistolet : MonoBehaviour
     {
         
         
-            Debug.Log(3);
             currentAmmo += amount; // Увеличиваем текущее количество патронов
             currentAmmo = Mathf.Clamp(currentAmmo, 0, maxAmmo); // Ограничиваем количество патронов максимальным значением
             AmmoUI();

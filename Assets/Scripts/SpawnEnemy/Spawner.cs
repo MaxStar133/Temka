@@ -8,25 +8,43 @@ public class Spawner : ObjectPool
     [SerializeField] Transform[] spawner;
     [SerializeField] float secondForSpawn;
     private float time = 0;
-
+    private float time_cop = 0;
+    private int i = 0;
+    public int TimeToAdd = 15;
     private void Start()
     {
         Initialized(prefabObjects);
+        Zomby();
     }
         
     private void Update()
     {
         time += Time.deltaTime;
+        time_cop += Time.deltaTime;
+        //это код добавление моба каждые n секунд
+        if (time_cop >= TimeToAdd)
+        {
+            time_cop = 0;
+            Initialized(prefabObjects);
+        }
+        //
 
-        if(time >= secondForSpawn)
+        //это уменьшение времени спавна
+        secondForSpawn = secondForSpawn - 0.000025f;
+            if (secondForSpawn < 0.1f)
+        {
+            secondForSpawn = 0.1f;
+        }
+        //
+
+        if (time >= secondForSpawn)
         {
             if (TryGetObject(out GameObject enemy))
             {
                 time = 0;
-
                 int spawnPointNumber = Random.Range(0, spawner.Length);
-
                 SetEnemy(enemy, spawner[spawnPointNumber].position);
+                
             }
         }
     }

@@ -263,7 +263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -124.73999, y: 17.063995}
+  m_AnchoredPosition: {x: -124.73999, y: 17.063965}
   m_SizeDelta: {x: 117.54, y: 47.088}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &339576763
@@ -1309,7 +1309,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2618,7 +2618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 548628363}
-  capacity: 4
+  capacity: 7
   prefabObjects:
   - {fileID: 860222804705963969, guid: c308d0d9af087224bb7a9a5b0c04de41, type: 3}
   spawner:
@@ -2627,6 +2627,7 @@ MonoBehaviour:
   - {fileID: 393743501}
   - {fileID: 1557434334}
   secondForSpawn: 1
+  TimeToAdd: 5
 --- !u!4 &1900451611
 Transform:
   m_ObjectHideFlags: 0
