@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -27,7 +26,6 @@ public class ObjectPool : MonoBehaviour
     {
         for (int i = 0; i < capacity; i++)
         {
-            Debug.Log(capacity);
             int randomIndex = Random.Range(0, prefab.Length);
             GameObject spawned = Instantiate(prefab[randomIndex], container.transform);
 

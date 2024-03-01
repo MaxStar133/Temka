@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : ObjectPool
@@ -9,7 +7,6 @@ public class Spawner : ObjectPool
     [SerializeField] float secondForSpawn;
     private float time = 0;
     private float time_cop = 0;
-    private int i = 0;
     public int TimeToAdd = 15;
     private void Start()
     {
