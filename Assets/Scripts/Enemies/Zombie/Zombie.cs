@@ -6,6 +6,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private AudioSource audioEnemy;
     [SerializeField] private float timeDie = 1.5f;
     public GameObject ammoPrefab;
+	public GameObject HpPrefab;
 	public int randSpawnAmmo = 50;
 	public int randSpawnHP = 50;
 	public int incRandSpawnAmmo = 25;
@@ -97,7 +98,7 @@ public class Zombie : MonoBehaviour
 	}
 	private void DropHP()
 	{
-		Instantiate(ammoPrefab, transform.position, Quaternion.identity);
+		Instantiate(HpPrefab, transform.position, Quaternion.identity);
 	}
 
 

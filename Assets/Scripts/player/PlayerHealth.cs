@@ -56,9 +56,7 @@ public class PlayerHealth : MonoBehaviour
         {
             health = 0;
         }
-        HPUI();
-        LineBar.fillAmount = health / 100;
-
+        Fill();
 
         if (health <= 0)
         {
@@ -70,14 +68,14 @@ public class PlayerHealth : MonoBehaviour
             loseGun.enabled = false;
         }
     }
-    private void HPUI()
-    {
-        textHealth.text = health.ToString();
-    }
     public void AddHp(int amount)
     {
         health += amount;
         health = Mathf.Clamp(health, 0, MaxHP);
-        HPUI();
+        Fill();
+    }
+    private void Fill()
+    {
+        LineBar.fillAmount = health / 100;
     }
 }

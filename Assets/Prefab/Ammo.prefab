@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3238916456801968934}
   - component: {fileID: -2319073349162772030}
   - component: {fileID: -9167121560914416232}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,4 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9b5d4b1dc6ff649893adb9e75aeac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 2
+  minAmmoAmount: 2
+  maxAmmoAmount: 5
