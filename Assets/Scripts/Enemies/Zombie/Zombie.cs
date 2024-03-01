@@ -7,11 +7,12 @@ public class Zombie : MonoBehaviour
     [SerializeField] private float timeDie = 1.5f;
     public GameObject ammoPrefab;
 	public GameObject HpPrefab;
-	public int randSpawnAmmo = 50;
-	public int randSpawnHP = 50;
-	public int incRandSpawnAmmo = 25;
+	private int randSpawnAmmo = 50;
+	private int randSpawnHP = 50;
+	private int incRandSpawnAmmo = 25;
+	private int incRandSpawnHP = 25;
 
-    public int minDamageEnemy = 1;
+	public int minDamageEnemy = 1;
     public int maxDamageEnemy = 2;
     
     private int currentRandSpawnAmmo;
@@ -89,7 +90,7 @@ public class Zombie : MonoBehaviour
 				DropHP();
 				currentRandSpawnHP = randSpawnHP;
 			}else
-				currentRandSpawnHP += randSpawnHP;
+				currentRandSpawnHP += incRandSpawnHP;
 		}
 		
 	}

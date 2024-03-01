@@ -428,7 +428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 728.9, y: 1.5552063}
+  m_AnchoredPosition: {x: 728.9, y: 1.5551758}
   m_SizeDelta: {x: 25.9, y: 25.9}
   m_Pivot: {x: 2.0298588, y: -0.13432822}
 --- !u!114 &482880223
@@ -1008,9 +1008,9 @@ RectTransform:
   - {fileID: 1431556746}
   - {fileID: 339576762}
   - {fileID: 1631725686}
-  - {fileID: 1350016637}
   - {fileID: 1917130707}
   - {fileID: 2015349973}
+  - {fileID: 1350016637}
   - {fileID: 482880222}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1462,8 +1462,8 @@ MonoBehaviour:
   currentAidKit: 2
   LineBar: {fileID: 2070515699}
   playerDie: 0
-  minHpAmount: 2
-  maxHpAmount: 5
+  minHpAmount: 15
+  maxHpAmount: 25
 --- !u!82 &996954058
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2995,7 +2995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -25.575989, y: 18.36499}
+  m_AnchoredPosition: {x: -25.575928, y: 18.36499}
   m_SizeDelta: {x: 36.73, y: 36.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917130708
