@@ -7,23 +7,36 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private float timeToDamage;
     [SerializeField] private GameObject loseMenu;
-    [SerializeField] private TextMeshProUGUI textHealth;
+    [SerializeField] private TextMeshProUGUI textAidKit;
     [SerializeField] private AudioSource audioDie;
+    [SerializeField] private int currentAidKit=0;
+    //[SerializeField] private int maxAidKit=5;
+
     public Image LineBar;
     private float MaxHP = 100;
     private Pistolet loseGun;
     private Rigidbody2D rb;
     private Zombie damage;
     private float time = 1;
-    private bool playerDie = false;
+    public bool playerDie = false;
+    // Количество ХП, которые дает данный объект
+    public int minHpAmount = 2;
+    public int maxHpAmount = 5;
 
     private void Start()
     {
         rb=GetComponent<Rigidbody2D>();
         loseGun = FindObjectOfType<Pistolet>().GetComponent<Pistolet>();
+        textAidKit.text = currentAidKit + "x";
     }
 
-   
+    private void Update()
+    {
+       if (Input.GetButtonDown("Heal")){
+            if(health<MaxHP)
+            AddHp();
+        }
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -68,11 +81,18 @@ public class PlayerHealth : MonoBehaviour
             loseGun.enabled = false;
         }
     }
-    public void AddHp(int amount)
+    public void AddAidKit()
     {
-        health += amount;
+        currentAidKit++;
+        textAidKit.text = currentAidKit + "x";
+    }
+    private void AddHp()
+    {
+        health += Random.Range(minHpAmount, maxHpAmount + 1);
         health = Mathf.Clamp(health, 0, MaxHP);
         Fill();
+        currentAidKit--;
+        textAidKit.text = currentAidKit + "x";
     }
     private void Fill()
     {

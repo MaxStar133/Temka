@@ -7,23 +7,25 @@ public class TimeCont : MonoBehaviour
     private int sec = 0;
     private int min = 0;
     [SerializeField] private TextMeshProUGUI TIMER;
+    [SerializeField] PlayerHealth player;
     void Start()
     {
+        
         StartCoroutine(TimeFlow());
     }
     IEnumerator TimeFlow()
     {
-        while (true)
-        {
-            if (sec == 59)
+            while (!player.playerDie)
             {
-                min++;
-                sec = -1;
+                if (sec == 59)
+                {
+                    min++;
+                    sec = -1;
+                }
+                sec++;
+                TIMER.text = min.ToString("D2") + ":" + sec.ToString("D2");
+                yield return new WaitForSeconds(1);
             }
-            sec++;
-            TIMER.text = min.ToString("D2") + ":" + sec.ToString("D2");
-            yield return new WaitForSeconds(1);
-        }
     }
 
 }

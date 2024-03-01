@@ -171,7 +171,7 @@ MonoBehaviour:
   HpPrefab: {fileID: 1290367667148473980, guid: 736c13773b804ad4ebeb35415e75d056, type: 3}
   randSpawnAmmo: 50
   randSpawnHP: 50
-  incRandSpawnAmmo: 25
+  incRandSpawnAmmo: 50
   minDamageEnemy: 5
   maxDamageEnemy: 10
 --- !u!114 &4105383540978958062

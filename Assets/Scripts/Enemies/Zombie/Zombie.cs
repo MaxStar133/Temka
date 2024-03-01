@@ -80,7 +80,8 @@ public class Zombie : MonoBehaviour
 			{
 				DropAmmo();
 				currentRandSpawnAmmo = randSpawnAmmo;
-			}else
+			}
+			else
 				currentRandSpawnAmmo += incRandSpawnAmmo;
 
 			if (Random.Range(0, 100 / currentRandSpawnHP) == 0)
