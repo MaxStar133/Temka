@@ -19,7 +19,11 @@ public class PlayerHealth : MonoBehaviour
     private Zombie damage;
     private float time = 1;
     public bool playerDie = false;
+<<<<<<< HEAD
     // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+=======
+    // Количество ХП, которые дает данный объект
+>>>>>>> 226ce0f543966a3b190108c4916ce1b80c9c91a3
     public int minHpAmount = 2;
     public int maxHpAmount = 5;
 
