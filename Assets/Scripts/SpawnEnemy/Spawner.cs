@@ -5,9 +5,11 @@ public class Spawner : ObjectPool
     [SerializeField] GameObject[] prefabObjects;
     [SerializeField] Transform[] spawner;
     [SerializeField] float secondForSpawn;
+    [SerializeField] private float minusTime = 0.000025f;
     private float time = 0;
     private float time_cop = 0;
     public int TimeToAdd = 15;
+    
     private void Start()
     {
         Initialized(prefabObjects);
@@ -27,7 +29,7 @@ public class Spawner : ObjectPool
         //
 
         //это уменьшение времени спавна
-        secondForSpawn = secondForSpawn - 0.000025f;
+        secondForSpawn = secondForSpawn - minusTime;
             if (secondForSpawn < 0.1f)
         {
             secondForSpawn = 0.1f;

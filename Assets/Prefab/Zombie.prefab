@@ -169,9 +169,9 @@ MonoBehaviour:
   timeDie: 1.5
   ammoPrefab: {fileID: 9132694336966834371, guid: 744f9eb89fed03c4f821474f204f2a76, type: 3}
   HpPrefab: {fileID: 1290367667148473980, guid: 736c13773b804ad4ebeb35415e75d056, type: 3}
-  randSpawnAmmo: 100
+  randSpawnAmmo: 50
   randSpawnHP: 50
-  incRandSpawnAmmo: 0
+  incRandSpawnAmmo: 25
   minDamageEnemy: 5
   maxDamageEnemy: 10
 --- !u!114 &4105383540978958062

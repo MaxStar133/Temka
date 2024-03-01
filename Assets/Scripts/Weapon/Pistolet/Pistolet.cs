@@ -34,8 +34,11 @@ public class Pistolet : MonoBehaviour
         if (Input.GetMouseButton(0) && canShoot && currentAmmo > 0)
         {
             currentAmmo--;
+            Debug.Log("shoot");
             StartCoroutine(Shoot());
+            Debug.Log("shoot1");
             audioGun.Play();
+            
             AmmoUI();
         }
     }
@@ -51,12 +54,13 @@ public class Pistolet : MonoBehaviour
     }
     private IEnumerator Shoot()
     {
-        if (currentAmmo > 0)
+        if (currentAmmo >= 0)
         {
             canShoot = false;
             Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(fireRate);
             canShoot = true;
+            
         }
     }
 }
