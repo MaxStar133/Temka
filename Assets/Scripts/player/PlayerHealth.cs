@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private GameObject loseMenu;
     [SerializeField] private TextMeshProUGUI textHealth;
     [SerializeField] private AudioSource audioDie;
+    public Image LineBar;
+    private float MaxHP = 100;
     private Pistolet loseGun;
     private Rigidbody2D rb;
     private Zombie damage;
@@ -53,8 +56,8 @@ public class PlayerHealth : MonoBehaviour
         {
             health = 0;
         }
-        textHealth.text = health.ToString();
-            
+        HPUI();
+        LineBar.fillAmount = health / 100;
 
 
         if (health <= 0)
@@ -66,5 +69,15 @@ public class PlayerHealth : MonoBehaviour
             playerDie = true;
             loseGun.enabled = false;
         }
+    }
+    private void HPUI()
+    {
+        textHealth.text = health.ToString();
+    }
+    public void AddHp(int amount)
+    {
+        health += amount;
+        health = Mathf.Clamp(health, 0, MaxHP);
+        HPUI();
     }
 }

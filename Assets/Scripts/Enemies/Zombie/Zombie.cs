@@ -7,14 +7,16 @@ public class Zombie : MonoBehaviour
     [SerializeField] private float timeDie = 1.5f;
     public GameObject ammoPrefab;
 	public int randSpawnAmmo = 50;
-    public int incRandSpawnAmmo = 25;
+	public int randSpawnHP = 50;
+	public int incRandSpawnAmmo = 25;
 
     public int minDamageEnemy = 1;
     public int maxDamageEnemy = 2;
     
     private int currentRandSpawnAmmo;
-	
-    private ZombieMove move;
+	private int currentRandSpawnHP;
+
+	private ZombieMove move;
 	private CircleCollider2D circleCollider;
 	private Pistolet gun;
 	private Animator anim;
@@ -31,7 +33,9 @@ public class Zombie : MonoBehaviour
         stunSpeed = move.speed / 2;
 		speed = move.speed;
 		currentRandSpawnAmmo = randSpawnAmmo;
-    }
+		currentRandSpawnHP = randSpawnHP;
+
+	}
     private void ResetSpeed()
     {
         move.speed = speed;
@@ -75,12 +79,15 @@ public class Zombie : MonoBehaviour
 			{
 				DropAmmo();
 				currentRandSpawnAmmo = randSpawnAmmo;
-			}
-			else
-			{
+			}else
 				currentRandSpawnAmmo += incRandSpawnAmmo;
 
-            }
+			if (Random.Range(0, 100 / currentRandSpawnHP) == 0)
+            {
+				DropHP();
+				currentRandSpawnHP = randSpawnHP;
+			}else
+				currentRandSpawnHP += randSpawnHP;
 		}
 		
 	}
@@ -88,7 +95,10 @@ public class Zombie : MonoBehaviour
 	{
 		Instantiate(ammoPrefab, transform.position, Quaternion.identity); 
 	}
-
+	private void DropHP()
+	{
+		Instantiate(ammoPrefab, transform.position, Quaternion.identity);
+	}
 
 
 }
