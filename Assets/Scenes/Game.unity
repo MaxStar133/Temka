@@ -1462,7 +1462,7 @@ MonoBehaviour:
   currentAidKit: 2
   LineBar: {fileID: 2070515699}
   playerDie: 0
-  minHpAmount: 15
+  minHpAmount: 10
   maxHpAmount: 25
 --- !u!82 &996954058
 AudioSource:
