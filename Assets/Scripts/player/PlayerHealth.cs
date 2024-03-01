@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
        if (Input.GetButtonDown("Heal")){
-            if(health<MaxHP)
+            if (health < MaxHP && currentAidKit > 0)
             AddHp();
         }
     }
