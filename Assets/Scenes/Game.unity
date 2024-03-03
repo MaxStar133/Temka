@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74123b8665d44dc498eb9560e57d2fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   anim: {fileID: 1540541134}
 --- !u!114 &996954057
 MonoBehaviour:
@@ -1460,6 +1460,7 @@ MonoBehaviour:
   textAidKit: {fileID: 2015349974}
   audioDie: {fileID: 996954058}
   currentAidKit: 2
+  anim: {fileID: 1540541134}
   LineBar: {fileID: 2070515699}
   playerDie: 0
   minHpAmount: 10
@@ -2938,7 +2939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1900451610
 MonoBehaviour:
   m_ObjectHideFlags: 0
