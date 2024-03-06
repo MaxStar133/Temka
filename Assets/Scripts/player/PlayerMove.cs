@@ -5,12 +5,12 @@ public class PlayerMove : MonoBehaviour
    [SerializeField] private float speed;
     [SerializeField] private Animator anim;
 
-    private Rigidbody2D rg;
+   private Rigidbody2D rg;
    private Vector2 moveInput;
 
    private void Start()
    {
-     rg = GetComponent<Rigidbody2D>();
+        rg = GetComponent<Rigidbody2D>();
    }
 
    private void Update()
@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
 
         moveInput.x = Input.GetAxisRaw("Horizontal");
-         moveInput.y = Input.GetAxisRaw("Vertical");
+        moveInput.y = Input.GetAxisRaw("Vertical");
 
         CheckAnimation();
 
