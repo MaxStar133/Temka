@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textAidKit;
     [SerializeField] private AudioSource audioDie;
     [SerializeField] private int currentAidKit=0;
+    [SerializeField] private Animator anim;
     //[SerializeField] private int maxAidKit=5;
 
     public Image LineBar;
@@ -62,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
     }
     private void TakeDamage()
     {
+        anim.SetTrigger("takeDamage");
         damage = FindObjectOfType<Zombie>().GetComponent<Zombie>();
         health = health - Random.Range(damage.minDamageEnemy, damage.maxDamageEnemy+1);
         if (health < 0)

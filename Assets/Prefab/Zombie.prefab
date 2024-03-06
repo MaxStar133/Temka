@@ -169,9 +169,6 @@ MonoBehaviour:
   timeDie: 1.5
   ammoPrefab: {fileID: 9132694336966834371, guid: 744f9eb89fed03c4f821474f204f2a76, type: 3}
   HpPrefab: {fileID: 1290367667148473980, guid: 736c13773b804ad4ebeb35415e75d056, type: 3}
-  randSpawnAmmo: 100
-  randSpawnHP: 50
-  incRandSpawnAmmo: 50
   minDamageEnemy: 5
   maxDamageEnemy: 10
 --- !u!114 &4105383540978958062
@@ -186,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117391fce1d90a9419798b42db4557b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 1
 --- !u!82 &8470197336151195983
 AudioSource:
   m_ObjectHideFlags: 0
