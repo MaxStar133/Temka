@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ZombieMove : MonoBehaviour
 {
-	[SerializeField] public float speed;
+	public float speed;
 
 	private Transform playerPosition;
 
@@ -20,9 +20,14 @@ public class ZombieMove : MonoBehaviour
     }
         private void Update()
 	{
-		if (playerPosition != null)
-		{
-			transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, speed * Time.deltaTime);
-		}
-	}
+        if (playerPosition != null)
+        {   // Перемещаем зомби к игроку
+            transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, speed * Time.deltaTime);
+
+            // Поворачиваем зомби к игроку
+            Vector3 direction = playerPosition.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+    }
 }
