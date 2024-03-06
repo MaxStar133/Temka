@@ -2,30 +2,29 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-public class TimeCont : MonoBehaviour
+public class TimerController : MonoBehaviour
 {
-    private int sec = 0;
-    private int min = 0;
-    [SerializeField] private TextMeshProUGUI TIMER;
-    [SerializeField] PlayerHealth player;
+private int _sec = 0;
+private int _min = 0;
+[SerializeField] private TextMeshProUGUI timer;
+[SerializeField] PlayerHealth player;
     void Start()
-    {
-        
-        StartCoroutine(TimeFlow());
+    {  
+    StartCoroutine(TimeFlow());
     }
     IEnumerator TimeFlow()
     {
-            while (!player.playerDie)
+        while (!player.IsPlayerDie)
+        {
+            if (_sec == 59)
             {
-                if (sec == 59)
-                {
-                    min++;
-                    sec = -1;
-                }
-                sec++;
-                TIMER.text = min.ToString("D2") + ":" + sec.ToString("D2");
-                yield return new WaitForSeconds(1);
+            _min++;
+            _sec = -1;
             }
+        _sec++;
+        timer.text = _min.ToString("D2") + ":" + _sec.ToString("D2");
+        yield return new WaitForSeconds(1);
+        }
     }
 
 }
